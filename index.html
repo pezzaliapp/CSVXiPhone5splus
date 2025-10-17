@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>CSVXiPhone5splus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- iOS 8 Web App -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#2196f3">
+
+  <!-- Icone iOS -->
+  <link rel="apple-touch-icon" href="icon/CSVXpressPlus-192.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="icon/CSVXpressPlus-192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icon/CSVXpressPlus-512.png">
+  <link rel="icon" type="image/png" href="icon/CSVXpressPlus-192.png">
+
+  <!-- Manifest ignorato su iOS 8, ma non dà fastidio se resta nel progetto -->
+  <!-- <link rel="manifest" href="manifest.json"> -->
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="icon/CSVXpressPlus-1024.png" alt="CSVXpressPlus Logo" class="logo">
+      <h1>CSVXiPhone5splus</h1>
+    </div>
+  </header>
+
+  <main>
+    <section id="upload-section">
+      <h2>Carica Listino CSV</h2>
+      <input type="file" id="csvFileInput" accept=".csv">
+      <p id="csvError" style="color: red; display: none;">Errore nel caricamento del file CSV.</p>
+
+      <label><input type="checkbox" id="toggleCosti" checked> Popola automaticamente Trasporto e Installazione</label>
+      <br>
+      <label><input type="checkbox" id="toggleMostraServizi" checked> Mostra dettagli Trasporto/Installazione nel report</label>
+    </section>
+
+    <section id="listino-section">
+      <h2>Filtra e Seleziona Articolo dal Listino</h2>
+      <label for="searchListino">Cerca: </label>
+      <input type="text" id="searchListino" placeholder="Inserisci codice o descrizione">
+      <select id="listinoSelect"></select>
+      <button id="btnAddFromListino">Aggiungi Articolo Selezionato</button>
+      <button id="btnManual">Aggiungi Articolo Manualmente</button>
+    </section>
+
+    <section id="articoli-section">
+      <h2>Articoli Aggiunti</h2>
+      <table id="articoli-table" border="1">
+        <thead>
+          <tr>
+            <th>Codice</th>
+            <th>Descrizione</th>
+            <th>Prezzo Lordo</th>
+            <th>Sconto 1%</th>
+            <th>Sconto 2%</th>
+            <th>Margine %</th>
+            <th>Totale</th>
+            <th>Trasporto</th>
+            <th>Installazione</th>
+            <th>Q.tà</th>
+            <th>Gran Tot</th>
+            <th>Venduto A €</th>
+            <th>Differenza sconto</th>
+            <th>Azioni</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <div id="totaleGenerale"></div>
+
+    <section id="report-section">
+      <h2>Report Articoli</h2>
+      <button id="btnWA">Invia Report su WhatsApp</button>
+      <button id="btnTXT">Genera TXT Report</button>
+      <br><br>
+      <button id="btnWAnm">Invia Report su WhatsApp Senza Margine</button>
+      <button id="btnTXTnm">Genera TXT Report Senza Margine</button>
+    </section>
+  </main>
+
+  <script src="app.legacy.js"></script>
+</body>
+</html>
